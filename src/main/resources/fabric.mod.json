@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "owo-ui-academy",
+  "version": "${version}",
+
+  "name": "owo-ui Academy",
+  "description": "It's learnin' time",
+  "authors": [
+    "glisco"
+  ],
+  "contact": {},
+
+  "license": "MIT",
+
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "io.wispforest.academy.OwoUIAcademy"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric": "*",
+    "minecraft": "1.19"
+  }
+}
