@@ -2,6 +2,7 @@ package io.wispforest.academy.screen;
 
 import io.wispforest.owo.ui.base.BaseUIModelScreen;
 import io.wispforest.owo.ui.component.BoxComponent;
+import io.wispforest.owo.ui.component.ButtonComponent;
 import io.wispforest.owo.ui.container.FlowLayout;
 import io.wispforest.owo.ui.core.Positioning;
 import net.minecraft.client.gui.screen.Screen;
@@ -24,23 +25,23 @@ public class PositioningTutorialScreen extends BaseUIModelScreen<FlowLayout> {
     @Override
     @SuppressWarnings("ConstantConditions")
     protected void build(FlowLayout rootComponent) {
-        rootComponent.childById(ButtonWidget.class, "inspector-button")
+        rootComponent.childById(ButtonComponent.class, "inspector-button")
                 .onPress(button -> this.uiAdapter.toggleInspector());
 
-        rootComponent.childById(ButtonWidget.class, "previous-button")
+        rootComponent.childById(ButtonComponent.class, "previous-button")
                 .onPress(button -> this.client.setScreen(this.parent));
 
-        rootComponent.childById(ButtonWidget.class, "next-button")
+        rootComponent.childById(ButtonComponent.class, "next-button")
                 .onPress(button -> this.client.setScreen(new AlignmentTutorialScreen(this)));
 
         // --------
 
         var theBox = rootComponent.childById(BoxComponent.class, "the-box");
-        rootComponent.childById(ButtonWidget.class, "layout-button").onPress(button -> theBox.positioning(Positioning.layout()));
+        rootComponent.childById(ButtonComponent.class, "layout-button").onPress(button -> theBox.positioning(Positioning.layout()));
 
         // --------
 
-        var absoluteButton = rootComponent.childById(ButtonWidget.class, "absolute-button");
+        var absoluteButton = rootComponent.childById(ButtonComponent.class, "absolute-button");
         var absoluteX = rootComponent.childById(TextFieldWidget.class, "absolute-x-text-box");
         var absoluteY = rootComponent.childById(TextFieldWidget.class, "absolute-y-text-box");
 
@@ -57,7 +58,7 @@ public class PositioningTutorialScreen extends BaseUIModelScreen<FlowLayout> {
 
         // --------
 
-        var relativeButton = rootComponent.childById(ButtonWidget.class, "relative-button");
+        var relativeButton = rootComponent.childById(ButtonComponent.class, "relative-button");
         var relativeX = rootComponent.childById(TextFieldWidget.class, "relative-x-text-box");
         var relativeY = rootComponent.childById(TextFieldWidget.class, "relative-y-text-box");
 

@@ -1,12 +1,11 @@
 package io.wispforest.academy.screen;
 
 import io.wispforest.owo.ui.base.BaseUIModelScreen;
+import io.wispforest.owo.ui.component.ButtonComponent;
 import io.wispforest.owo.ui.container.FlowLayout;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
-
 
 public class LayoutTutorialScreen extends BaseUIModelScreen<FlowLayout> {
 
@@ -20,13 +19,13 @@ public class LayoutTutorialScreen extends BaseUIModelScreen<FlowLayout> {
     @Override
     @SuppressWarnings("ConstantConditions")
     protected void build(FlowLayout rootComponent) {
-        rootComponent.childById(ButtonWidget.class, "inspector-button")
+        rootComponent.childById(ButtonComponent.class, "inspector-button")
                 .onPress(button -> this.uiAdapter.toggleInspector());
 
-        rootComponent.childById(ButtonWidget.class, "previous-button")
+        rootComponent.childById(ButtonComponent.class, "previous-button")
                 .onPress(button -> this.client.setScreen(this.parent));
 
-        rootComponent.childById(ButtonWidget.class, "next-button")
+        rootComponent.childById(ButtonComponent.class, "next-button")
                 .onPress(button -> this.close());
     }
 }

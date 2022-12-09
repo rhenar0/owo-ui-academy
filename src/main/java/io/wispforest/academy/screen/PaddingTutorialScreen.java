@@ -1,6 +1,7 @@
 package io.wispforest.academy.screen;
 
 import io.wispforest.owo.ui.base.BaseUIModelScreen;
+import io.wispforest.owo.ui.component.ButtonComponent;
 import io.wispforest.owo.ui.component.CheckboxComponent;
 import io.wispforest.owo.ui.container.FlowLayout;
 import io.wispforest.owo.ui.core.HorizontalAlignment;
@@ -8,7 +9,6 @@ import io.wispforest.owo.ui.core.Insets;
 import io.wispforest.owo.ui.core.ParentComponent;
 import io.wispforest.owo.ui.core.VerticalAlignment;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -16,7 +16,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
-
 
 public class PaddingTutorialScreen extends BaseUIModelScreen<FlowLayout> {
 
@@ -30,13 +29,13 @@ public class PaddingTutorialScreen extends BaseUIModelScreen<FlowLayout> {
     @Override
     @SuppressWarnings("ConstantConditions")
     protected void build(FlowLayout rootComponent) {
-        rootComponent.childById(ButtonWidget.class, "inspector-button")
+        rootComponent.childById(ButtonComponent.class, "inspector-button")
                 .onPress(button -> this.uiAdapter.toggleInspector());
 
-        rootComponent.childById(ButtonWidget.class, "previous-button")
+        rootComponent.childById(ButtonComponent.class, "previous-button")
                 .onPress(button -> this.client.setScreen(this.parent));
 
-        rootComponent.childById(ButtonWidget.class, "next-button")
+        rootComponent.childById(ButtonComponent.class, "next-button")
                 .onPress(button -> this.client.setScreen(new PositioningTutorialScreen(this)));
 
         var boxContainer = rootComponent.childById(FlowLayout.class, "box-container");

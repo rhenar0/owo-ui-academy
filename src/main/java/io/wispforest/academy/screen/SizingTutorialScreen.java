@@ -1,6 +1,7 @@
 package io.wispforest.academy.screen;
 
 import io.wispforest.owo.ui.base.BaseUIModelScreen;
+import io.wispforest.owo.ui.component.ButtonComponent;
 import io.wispforest.owo.ui.container.FlowLayout;
 import io.wispforest.owo.ui.core.Sizing;
 import net.minecraft.client.gui.screen.Screen;
@@ -10,7 +11,6 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
-
 
 public class SizingTutorialScreen extends BaseUIModelScreen<FlowLayout> {
 
@@ -24,13 +24,13 @@ public class SizingTutorialScreen extends BaseUIModelScreen<FlowLayout> {
     @Override
     @SuppressWarnings("ConstantConditions")
     protected void build(FlowLayout rootComponent) {
-        rootComponent.childById(ButtonWidget.class, "inspector-button")
+        rootComponent.childById(ButtonComponent.class, "inspector-button")
                 .onPress(button -> this.uiAdapter.toggleInspector());
 
-        rootComponent.childById(ButtonWidget.class, "previous-button")
+        rootComponent.childById(ButtonComponent.class, "previous-button")
                 .onPress(button -> this.client.setScreen(this.parent));
 
-        rootComponent.childById(ButtonWidget.class, "next-button")
+        rootComponent.childById(ButtonComponent.class, "next-button")
                 .onPress(button -> this.client.setScreen(new LayoutTutorialScreen(this)));
 
         // --------
@@ -39,7 +39,7 @@ public class SizingTutorialScreen extends BaseUIModelScreen<FlowLayout> {
 
         // --------
 
-        var contentButton = rootComponent.childById(ButtonWidget.class, "content-button");
+        var contentButton = rootComponent.childById(ButtonComponent.class, "content-button");
         var contentX = rootComponent.childById(TextFieldWidget.class, "content-x-text-box");
         var contentY = rootComponent.childById(TextFieldWidget.class, "content-y-text-box");
 
@@ -58,7 +58,7 @@ public class SizingTutorialScreen extends BaseUIModelScreen<FlowLayout> {
 
         // --------
 
-        var fixedButton = rootComponent.childById(ButtonWidget.class, "fixed-button");
+        var fixedButton = rootComponent.childById(ButtonComponent.class, "fixed-button");
         var fixedX = rootComponent.childById(TextFieldWidget.class, "fixed-x-text-box");
         var fixedY = rootComponent.childById(TextFieldWidget.class, "fixed-y-text-box");
 
@@ -77,7 +77,7 @@ public class SizingTutorialScreen extends BaseUIModelScreen<FlowLayout> {
 
         // --------
 
-        var fillButton = rootComponent.childById(ButtonWidget.class, "fill-button");
+        var fillButton = rootComponent.childById(ButtonComponent.class, "fill-button");
         var fillX = rootComponent.childById(TextFieldWidget.class, "fill-x-text-box");
         var fillY = rootComponent.childById(TextFieldWidget.class, "fill-y-text-box");
 

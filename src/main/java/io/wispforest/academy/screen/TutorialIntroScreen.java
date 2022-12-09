@@ -2,12 +2,11 @@ package io.wispforest.academy.screen;
 
 import io.wispforest.owo.ui.base.BaseUIModelScreen;
 import io.wispforest.owo.ui.component.BoxComponent;
+import io.wispforest.owo.ui.component.ButtonComponent;
 import io.wispforest.owo.ui.container.FlowLayout;
 import io.wispforest.owo.ui.core.*;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.util.Identifier;
 
-@SuppressWarnings("UnstableApiUsage")
 public class TutorialIntroScreen extends BaseUIModelScreen<FlowLayout> {
 
     public TutorialIntroScreen() {
@@ -17,10 +16,10 @@ public class TutorialIntroScreen extends BaseUIModelScreen<FlowLayout> {
     @Override
     @SuppressWarnings("ConstantConditions")
     protected void build(FlowLayout rootComponent) {
-        rootComponent.childById(ButtonWidget.class, "inspector-button")
+        rootComponent.childById(ButtonComponent.class, "inspector-button")
                 .onPress(button -> this.uiAdapter.toggleInspector());
 
-        rootComponent.childById(ButtonWidget.class, "next-button")
+        rootComponent.childById(ButtonComponent.class, "next-button")
                 .onPress(button -> this.client.setScreen(new MarginsTutorialScreen(this)));
 
         final var boxContainer = rootComponent.childById(FlowLayout.class, "box-container");
@@ -37,7 +36,7 @@ public class TutorialIntroScreen extends BaseUIModelScreen<FlowLayout> {
 
         var animations = Animation.compose(horizontalExpandAnimation, verticalExpandAnimation, boxAnimation, boxColorAnimation);
 
-        rootComponent.childById(ButtonWidget.class, "show-playground-button")
+        rootComponent.childById(ButtonComponent.class, "show-playground-button")
                 .onPress(button -> {
                     button.parent().removeChild(button);
                     animations.forwards();
